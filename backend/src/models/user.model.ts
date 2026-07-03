@@ -14,6 +14,8 @@ export interface IUser extends Document {
 
     role: UserRole;
 
+    isVerified: boolean;
+
     comparePassword(
         password: string
     ): Promise<boolean>;
@@ -46,7 +48,11 @@ const userSchema = new Schema<IUser>(
             type: String,
             enum: Object.values(UserRole),
             default: UserRole.VOLUNTEER
-        }
+        },
+        isVerified: {
+            type: Boolean,
+            default: false
+        },
     },
     {
         timestamps: true
