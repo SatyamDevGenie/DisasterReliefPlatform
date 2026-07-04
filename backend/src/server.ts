@@ -2,6 +2,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+import "./config/redis";
+
+
 import http from "http";
 
 import app from "./app";
